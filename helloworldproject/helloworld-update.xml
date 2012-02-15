@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<updates>
+   <update>
+      <name>HelloWorld</name>
+      <description>HelloWorld Component</description>
+      <element>com_helloworld</element>
+      <type>component</type>
+      <version>1.5.0</version>
+ 
+      <infourl title="HalloWorld URL">http://localhost:81/joomla25</infourl>
+      <downloads>
+         <downloadurl type="full" format="zip">http://localhost:81/joomla25/helloworldproject.zip</downloadurl>
+      </downloads>
+      <tags>
+         <tag>some-tag 1</tag>
+      </tags>
+ 
+      <maintainer>HelloWorld Inc.</maintainer>
+      <maintainerurl>http://localhost:81/joomla25</maintainerurl>
+      <section>some-section</section>
+      <targetplatform name="joomla" version="1.7" />
+   </update>
+   
+   <update>
+      <name>HelloWorld</name>
+      <description>HelloWorld Component</description>
+      <element>com_helloworld</element>
+      <type>component</type>
+      <version>1.5.0</version>
+ 
+      <infourl title="HalloWorld URL">http://localhost:81/joomla25</infourl>
+     <downloads>
+         <downloadurl type="full" format="zip">http://localhost:81/joomla25/helloworldproject.zip</downloadurl>
+      </downloads>
+      <tags>
+         <tag>some-tag 2</tag>
+      </tags>
+ 
+      <maintainer>HelloWorld Inc.</maintainer>
+      <maintainerurl>http://localhost:81/joomla25</maintainerurl>
+      <section>some-section</section>
+      <targetplatform name="joomla" version="2.5" />
+   </update>
+   
+     <update>
+      <name>HelloWorld</name>
+      <description>HelloWorld Component</description>
+      <element>com_helloworld</element>
+      <type>component</type>
+      <version>1.8.0</version>
+ 
+      <infourl title="HalloWorld URL">http://localhost:81/joomla25</infourl>
+     <downloads>
+         <downloadurl type="full" format="zip">http://localhost:81/joomla25/helloworldproject.zip</downloadurl>
+      </downloads>
+      <tags>
+         <tag>some-tag 1.8</tag>
+      </tags>
+ 
+      <maintainer>HelloWorld Inc.</maintainer>
+      <maintainerurl>http://localhost:81/joomla25</maintainerurl>
+      <section>some-section</section>
+      <targetplatform name="joomla" version="2.5" />
+   </update>
+</updates>
