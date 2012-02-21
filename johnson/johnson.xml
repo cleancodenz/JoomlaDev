@@ -52,6 +52,7 @@
 			<filename>index.html</filename>
 			<!-- SQL files section -->
 			<folder>sql</folder>
+		    <folder>models</folder>
 		</files>
 
 	</administration>

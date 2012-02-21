@@ -9,7 +9,7 @@ JFormHelper::loadFieldClass('list');
 /**
  * HelloWorld Form Field class for the HelloWorld component
  */
-class JFormFieldHelloWorld extends JFormFieldList
+class JFormFieldJohnson extends JFormFieldList
 {
 	/**
 	 * The field type.
