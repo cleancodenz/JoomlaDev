@@ -35,6 +35,22 @@ class JohnsonModelJohnson extends JModel
         return 'Hello, World! from model';
     }
     
+    
+	/**
+	 * Returns a reference to the a Table object, always creating it.
+	 *
+	 * @param	type	The table type to instantiate
+	 * @param	string	A prefix for the table class name. Optional.
+	 * @param	array	Configuration array for model. Optional.
+	 * @return	JTable	A database object
+	 * @since	2.5
+	 */
+	public function getTable($type = 'Johnson', $prefix = 'JohnsonTable', $config = array()) 
+	{
+		return JTable::getInstance($type, $prefix, $config);
+	}
+	
+    
 /**
 	 * Get the message
 	 * @return string The message to be displayed to the user
@@ -44,16 +60,16 @@ class JohnsonModelJohnson extends JModel
 		if (!isset($this->msg)) 
 		{
 			$id = JRequest::getInt('id');
-			switch ($id) 
-			{
-				case 2:
-					$this->msg = 'Good bye World!';
-					break;
-				default:
-				case 1:
-					$this->msg = 'Hello World!';
-					break;
-			}
+			
+			// Get a TableHelloWorld instance
+			$table = $this->getTable();
+ 
+			// Load the message
+			$table->load($id);
+			
+			// Assign the message
+			$this->msg = $table->greeting;
+			
 		}
 		return $this->msg;
 	}
