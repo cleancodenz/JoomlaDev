@@ -42,7 +42,7 @@ class JohnsonViewDefaultView extends JView
 	 */
 	protected function addToolBar() 
 	{
-		JToolBarHelper::title(JText::_('COM_JOHNSON_MANAGER_HELLOWORLDS'));
+		JToolBarHelper::title(JText::_('COM_JOHNSON_MANAGER_HELLOWORLDS'),'johnson');
 		JToolBarHelper::deleteList('', 'defaultview.delete');
 		JToolBarHelper::editList('johnsonsingle.edit');
 		JToolBarHelper::addNew('johnsonsingle.add');

@@ -42,9 +42,22 @@ class JohnsonViewJohnsonSingles extends JView
 	 */
 	protected function addToolBar() 
 	{
-		JToolBarHelper::title(JText::_('COM_JOHNSON_MANAGER_HELLOWORLDS'));
+		// the second param will be used to construct the css class for title
+		JToolBarHelper::title(JText::_('COM_JOHNSON_MANAGER_HELLOWORLDS'),'johnson');
 		JToolBarHelper::deleteList('', 'johnsonsingles.delete');
 		JToolBarHelper::editList('johnsonsingle.edit');
 		JToolBarHelper::addNew('johnsonsingle.add');
 	}
+	
+/**
+	 * Method to set up the document properties
+	 *
+	 * @return void
+	 */
+	protected function setDocument() 
+	{
+		$document = JFactory::getDocument();
+		$document->setTitle(JText::_('COM_JOHNSON_ADMINISTRATION'));
+	}
+	
 }

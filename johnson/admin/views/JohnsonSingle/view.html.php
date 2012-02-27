@@ -11,6 +11,14 @@ jimport('joomla.application.component.view');
 class JohnsonViewJohnsonSingle extends JView
 {
 	/**
+	 * View form
+	 *
+	 * @var		form
+	 */
+	protected $form = null;
+ 
+	
+	/**
 	 * display method of Hello view
 	 * @return void
 	 */
@@ -35,6 +43,8 @@ class JohnsonViewJohnsonSingle extends JView
  
 		// Display the template
 		parent::display($tpl);
+		
+		
 	}
  
 	/**
@@ -45,9 +55,22 @@ class JohnsonViewJohnsonSingle extends JView
 		JRequest::setVar('hidemainmenu', true);
 		$isNew = ($this->item->id == 0);
 		JToolBarHelper::title($isNew ? JText::_('COM_JOHNSON_MANAGER_HELLOWORLD_NEW')
-		                             : JText::_('COM_JOHNSON_MANAGER_JOHNSON_EDIT'));
+		                             : JText::_('COM_JOHNSON_MANAGER_JOHNSON_EDIT','johnson'));
 		JToolBarHelper::save('johnsonsingle.save');
 		JToolBarHelper::cancel('johnsonsingle.cancel', $isNew ? 'JTOOLBAR_CANCEL'
 		                                                   : 'JTOOLBAR_CLOSE');
+	}
+	
+/**
+	 * Method to set up the document properties
+	 *
+	 * @return void
+	 */
+	protected function setDocument() 
+	{
+		$isNew = ($this->item->id < 1);
+		$document = JFactory::getDocument();
+		$document->setTitle($isNew ? JText::_('COM_JOHNSON_JOHNSONSINGLE_CREATING')
+		                           : JText::_('COM_JOHNSON_JOHNSONSINGLE_EDITING'));
 	}
 }
