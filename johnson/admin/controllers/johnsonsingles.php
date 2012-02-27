@@ -10,13 +10,5 @@ jimport('joomla.application.component.controlleradmin');
  */
 class JohnsonControllerJohnsonSingles extends JControllerAdmin
 {
-	/**
-	 * Proxy for getModel.
-	 * @since	2.5
-	 */
-	public function getModel($name = 'JohnsonSingle', $prefix = 'JohnsonModel') 
-	{
-		$model = parent::getModel($name, $prefix, array('ignore_request' => true));
-		return $model;
-	}
+	
 }
