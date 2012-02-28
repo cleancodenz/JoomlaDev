@@ -58,4 +58,14 @@ class JohnsonModelJohnsonSingle extends JModelAdmin
 		}
 		return $data;
 	}
+	
+/**
+	 * Method to get the script that have to be included on the form
+	 *
+	 * @return string	Script files
+	 */
+	public function getScript() 
+	{
+		return 'administrator/components/com_johnson/models/forms/johnsonform.js';
+	}
 }

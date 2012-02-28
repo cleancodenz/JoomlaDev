@@ -27,7 +27,10 @@ class JohnsonViewJohnsonSingle extends JView
 		// get the Data
 		$form = $this->get('Form');
 		$item = $this->get('Item');
+ 		
+		$script = $this->get('Script');
  
+		
 		// Check for errors.
 		if (count($errors = $this->get('Errors'))) 
 		{
@@ -37,13 +40,16 @@ class JohnsonViewJohnsonSingle extends JView
 		// Assign the Data
 		$this->form = $form;
 		$this->item = $item;
- 
+ 		$this->script = $script;
+ 		
 		// Set the toolbar
 		$this->addToolBar();
  
 		// Display the template
 		parent::display($tpl);
 		
+		// Set the document
+		$this->setDocument();
 		
 	}
  
@@ -72,5 +78,11 @@ class JohnsonViewJohnsonSingle extends JView
 		$document = JFactory::getDocument();
 		$document->setTitle($isNew ? JText::_('COM_JOHNSON_JOHNSONSINGLE_CREATING')
 		                           : JText::_('COM_JOHNSON_JOHNSONSINGLE_EDITING'));
+		                           
+		$document->addScript(JURI::root() . $this->script);
+		$document->addScript(JURI::root() . "/administrator/components/com_johnson"
+		                                  . "/views/johnsonsingle/submitbutton.js");
+		 // JAVASCRIPT TRANSLATION 
+		JText::script('COM_JOHNSON_JOHNSONSINGLE_ERROR_UNACCEPTABLE');
 	}
 }
