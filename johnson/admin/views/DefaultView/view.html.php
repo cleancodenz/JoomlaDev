@@ -46,5 +46,7 @@ class JohnsonViewDefaultView extends JView
 		JToolBarHelper::deleteList('', 'defaultview.delete');
 		JToolBarHelper::editList('johnsonsingle.edit');
 		JToolBarHelper::addNew('johnsonsingle.add');
+		JToolBarHelper::preferences('com_johnson');
+		
 	}
 }

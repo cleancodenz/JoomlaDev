@@ -21,17 +21,16 @@ class JohnsonViewJohnson extends JView
 {
 	function display($tpl = null)
 	{
-		//$greeting = "Hello World!";
-		//$this->greeting =$greeting;
+		// Assign data to the view
+		$this->item = $this->get('Item');
 		
-		// one way of accessing model
+		// Check for errors.
+		if (count($errors = $this->get('Errors'))) 
+		{
+			JError::raiseError(500, implode('<br />', $errors));
+			return false;
+		}
 		
-	//	$model = &$this->getModel();
-		
-	//	$this->greeting =$model->getGreeting();
-	
-		// another way to access the model using property getter
-		$this->greeting =$this->get('Msg');
 		parent::display($tpl);
 	}
 }

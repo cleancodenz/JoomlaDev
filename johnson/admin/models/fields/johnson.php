@@ -27,8 +27,9 @@ class JFormFieldJohnson extends JFormFieldList
 	{
 		$db = JFactory::getDBO();
 		$query = $db->getQuery(true);
-		$query->select('id,greeting');
+		$query->select('#__johnson.id as id,greeting,#__categories.title as category,catid');
 		$query->from('#__johnson');
+		$query->leftJoin('#__categories on catid=#__categories.id');
 		$db->setQuery((string)$query);
 		$messages = $db->loadObjectList();
 		$options = array();
@@ -36,7 +37,8 @@ class JFormFieldJohnson extends JFormFieldList
 		{
 			foreach($messages as $message) 
 			{
-				$options[] = JHtml::_('select.option', $message->id, $message->greeting);
+				$options[] = JHtml::_('select.option', $message->id, $message->greeting.
+				                      ($message->catid ? ' (' . $message->category . ')' : ''));
 			}
 		}
 		$options = array_merge(parent::getOptions(), $options);

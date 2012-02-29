@@ -47,6 +47,7 @@ class JohnsonViewJohnsonSingles extends JView
 		JToolBarHelper::deleteList('', 'johnsonsingles.delete');
 		JToolBarHelper::editList('johnsonsingle.edit');
 		JToolBarHelper::addNew('johnsonsingle.add');
+		JToolBarHelper::preferences('com_johnson');
 	}
 	
 /**

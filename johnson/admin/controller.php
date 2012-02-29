@@ -22,5 +22,8 @@ class JohnsonController extends JController
  
 		// call parent behavior
 		parent::display($cachable);
+		
+		// Set the submenu
+		JohnsonHelper::addSubmenu('messages');
 	}
 }
