@@ -42,11 +42,32 @@ class JohnsonViewDefaultView extends JView
 	 */
 	protected function addToolBar() 
 	{
+		// the second param will be used to construct the css class for title
+		$canDo = JohnsonHelper::getActions();
+		
 		JToolBarHelper::title(JText::_('COM_JOHNSON_MANAGER_HELLOWORLDS'),'johnson');
-		JToolBarHelper::deleteList('', 'defaultview.delete');
-		JToolBarHelper::editList('johnsonsingle.edit');
-		JToolBarHelper::addNew('johnsonsingle.add');
-		JToolBarHelper::preferences('com_johnson');
+		
+		if ($canDo->get('core.create')) 
+		{
+			
+			JToolBarHelper::addNew('johnsonsingle.add','JTOOLBAR_NEW');
+				
+			
+		}
+		if ($canDo->get('core.edit')) 
+		{
+			JToolBarHelper::editList('johnsonsingle.edit', 'JTOOLBAR_EDIT');
+		}
+		if ($canDo->get('core.delete')) 
+		{
+			JToolBarHelper::deleteList('', 'johnsonsingles.delete', 'JTOOLBAR_DELETE');
+		}
+		if ($canDo->get('core.admin')) 
+		{
+			JToolBarHelper::divider();
+			JToolBarHelper::preferences('com_johnson');
+		}
+		
 		
 	}
 }

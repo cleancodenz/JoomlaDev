@@ -26,4 +26,30 @@ abstract class JohnsonHelper
 			$document->setTitle(JText::_('COM_JOHNSON_ADMINISTRATION_CATEGORIES'));
 		}
 	}
+	
+	
+/**
+	 * Get the actions
+	 */
+	public static function getActions($messageId = 0)
+	{	
+		jimport('joomla.access.access');
+		$user	= JFactory::getUser();
+		$result	= new JObject;
+ 
+		if (empty($messageId)) {
+			$assetName = 'com_johnson';
+		}
+		else {
+			$assetName = 'com_johnson.message.'.(int) $messageId;
+		}
+ 
+		$actions = JAccess::getActions('com_johnson', 'component');
+ 
+		foreach ($actions as $action) {
+			$result->set($action->name, $user->authorise($action->name, $assetName));
+		}
+ 
+		return $result;
+	}
 }
